@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'first_app/css/style.css'%}" />
+</head>
+<body>
+    <h1>We are inside in first app</h1>
+    <h1>author name : {{name}}</h1>
+    <img src="{% static 'first_app/images/photo.jpeg'%}" alt="my_photo" />
+    <img src="{% static 'first_app/images/photo2.jpeg'%}" alt="photo"/>
+    {% comment %} <!-- <table border="1" , width="500">
+        <tr>
+            <th>ID</th>
+            <th>Course</th>
+            <th>Teacher</th>
+        </tr>
+        <tr>
+            {% for i in courses %}
+                <tr>
+                    <td>{{ i.id }}</td>
+                    <td>{{i.course}}</td>
+                    <td>{{i.teacher}}</td>
+                </tr>
+            {%endfor%}
+        </tr>
+    </table> --> {% endcomment %}
+
+    <!-- Filter in DTL -->
+
+    <!-- Add value -->
+    <h1>
+        {{marks | add:"2"}}
+    </h1>
+    {% comment %} Divisible Check {% endcomment %}
+    <h1>
+        {{ marks | divisibleby:"3" }}
+    </h1>
+    <!-- Length -->
+    <h1>
+        {{name | length}}
+    </h1>
+    {% comment %} wordcount {% endcomment %}
+    <h1>
+        {{blog | wordcount}}
+    </h1>
+    {% comment %} Truncate words {% endcomment %}
+    <h1>
+        {{blog | truncatewords:5}}
+        <br>
+        {{blog | truncatechars:20}}
+    </h1>
+    {% comment %} make_list {% endcomment %}
+    <h1>
+        {{marks | make_list}}
+    </h1>
+    {% comment %} upper_case {% endcomment %}
+    <h1>
+        {{name | upper}}
+    </h1>
+    {% comment %} lower case {% endcomment %}
+    <h1>
+        {{name | lower}}
+    </h1>
+    {% comment %} join {% endcomment %}
+    <h1>
+        {{lst | join:" // "}}
+    </h1>
+</body>
+</html>
